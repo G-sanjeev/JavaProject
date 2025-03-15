@@ -7,9 +7,17 @@ pipeline {
                 echo 'Building..'
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
+            post {
+                success {
+                    echo 'Build stage succeeded'
+                }
+                failure {
+                    error('Build stage failed')
+                }
+            }
         }
-        stage('EnvVars'){
-            steps{
+        stage('EnvVars') {
+            steps {
                 echo "Build id:  ${env.BUILD_ID}"
                 echo "Build number:  ${env.BUILD_NUMBER}"
                 echo "Build tag:  ${env.BUILD_TAG}"
@@ -21,15 +29,39 @@ pipeline {
                 echo "Build NODE NAME:  ${env.NODE_NAME}"
                 echo "Build WORKSPACE:  ${env.WORKSPACE}"
             }
+            post {
+                success {
+                    echo 'EnvVars stage succeeded'
+                }
+                failure {
+                    error('EnvVars stage failed')
+                }
+            }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
             }
+            post {
+                success {
+                    echo 'Test stage succeeded'
+                }
+                failure {
+                    error('Test stage failed')
+                }
+            }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+            }
+            post {
+                success {
+                    echo 'Deploy stage succeeded'
+                }
+                failure {
+                    error('Deploy stage failed')
+                }
             }
         }
     }

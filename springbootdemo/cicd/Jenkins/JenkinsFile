@@ -5,7 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                echo "Running ${en.BUILD_ID} on ${env.JENKINS_URL}"
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                echo " isTrue boolean value : ${isTrue}"
             }
             post {
                 success {

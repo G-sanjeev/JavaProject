@@ -17,6 +17,7 @@ pipeline {
                 }
             }
         }
+        if(isTrue){
         stage('EnvVars') {
             steps {
                 echo "Build id:  ${env.BUILD_ID}"
@@ -39,6 +40,8 @@ pipeline {
                 }
             }
         }
+}
+else{
         stage('Test') {
             steps {
                 echo 'Testing..'
@@ -65,5 +68,6 @@ pipeline {
                 }
             }
         }
-    }
+    }}
+
 }

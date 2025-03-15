@@ -8,6 +8,20 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
+        stage('allEnvVars'){
+            steps{
+                echo "Build id:  ${evn.BUILD_ID}"
+                echo "Build number:  ${evn.BUILD_NUMBER}"
+                echo "Build tag:  ${evn.BUILD_TAG}"
+                echo "Build url:  ${evn.BUILD_URL}"
+                echo "Build EXECUTOR NUMBER:  ${evn.EXECUTOR_NUMBER}"
+                echo "Build JAVA HOME:  ${evn.JAVA_HOME}"
+                echo "Build JENKIINS URL:  ${evn.JENKINS_URL}"
+                echo "Build JOB NAME:  ${evn.JOB_NAME}"
+                echo "Build NODE NAME:  ${evn.NODE_NAME}"
+                echo "Build WORKSPACE:  ${evn.WORKSPACE}"
+            }
+        }
         stage('Test') {
             steps {
                 echo 'Testing..'

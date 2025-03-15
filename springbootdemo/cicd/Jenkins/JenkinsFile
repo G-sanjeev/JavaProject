@@ -8,7 +8,7 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
-        stage('allEnvVars'){
+        stage('EnvVars'){
             steps{
                 echo "Build id:  ${evn.BUILD_ID}"
                 echo "Build number:  ${evn.BUILD_NUMBER}"
